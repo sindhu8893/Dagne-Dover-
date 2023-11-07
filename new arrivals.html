@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/styles.css" />
+  <title>Nav bar flex</title>
+  <title>Lightbox JQuery</title>
+  <style>
+
+.hero-text {
+      justify-content: right;
+      font-size: 80px;
+      position:absolute;
+      padding-top: 1px;
+    }
+    
+    .row > .column {
+  padding: 90px 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Create four equal columns that floats next to eachother */
+.column {
+  float: right;
+  width: 30%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+  width: 200px;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+  </style>
+ 
+</head>
+<body>
+  <header>
+    <!-- TODO: go assets/stylesheets/styles.css, look for the logo class and change the image -->
+    <a class="logo" href="home.html"></a>
+  <nav>
+    <div class="horizontal-nav flex-container">
+      <a href="home.html">HOME</a>
+      <a href="eco efforts.html">ECO EFFORTS</a>
+      <a href="unisex.html">UNISEX</a>
+      <a href="#" class="active-menu-item">NEW ARRIVALS</a>
+      <a href="dagne rewards.html">DAGNE REWARDS</a>
+      <a href="customize.html">CUSTOMIZE BAGS</a>
+    </div>
+    <!-- dropdown-menu -->
+    <div class="dropdown">
+      <button class="dropbtn"><span class="fa fa-bars fa-x"></span></button>
+      <div class="dropdown-content">
+        <a href="home.html">HOME</a>
+        <a href="eco efforts.html">ECO EFFORTS</a>
+        <a href="unisex.html">UNISEX</a>
+        <a href="#" class="active-menu-item">NEW ARRIVALS</a>
+        <a href="dagne rewards.html">DAGNE REWARDS</a>
+        <a href="customize.html">CUSTOMIZE BAGS</a>
+      </div>
+    </div>
+  </nav>
+  
+  
+  <div class="hero-text" style="padding: 0 0 20px 20px;">
+  
+    <p>DAGNE</p>
+    <P>NEW</p>
+  </div>
+  <!-- Images used to open the lightbox -->
+<div class="row">
+  <div class="column">
+    <img src="assets/images/img 1 .jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Neoprene</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 2.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Leather</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 3.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Airmesh</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 4.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Coated Canvas</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 5.jpg" onclick="openModal();currentSlide(5)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Organic Cotton</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 6.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Vegan Leather</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 7.jpg" onclick="openModal();currentSlide(7)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Travel Backpack</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 8.jpg" onclick="openModal();currentSlide(8)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Waterproof Ripstop</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 3.jpg" onclick="openModal();currentSlide(9)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Recycled Poly</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 4.jpg" onclick="openModal();currentSlide(10)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Pebbled Leather</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 5.jpg" onclick="openModal();currentSlide(11)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Airmesh</h4>
+  </div>
+  <div class="column">
+    <img src="assets/images/img 6.jpg" onclick="openModal();currentSlide(12)" class="hover-shadow">
+    <h4 style="padding: 0 0 0 120px;">Laptop bag</h4>
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 12</div>
+      <img src="assets/images/img 1 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 12</div>
+      <img src="assets/images/img 2 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 12</div>
+      <img src="assets/images/img 3 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 12</div>
+      <img src="assets/images/img 4 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 12</div>
+      <img src="assets/images/img 5 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">6 / 12</div>
+      <img src="assets/images/img 6 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">7 / 12</div>
+      <img src="assets/images/img 7 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">8 / 12</div>
+      <img src="assets/images/img 8 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">9 / 12</div>
+      <img src="assets/images/img 3 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">10 / 12</div>
+      <img src="assets/images/img 4 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">11 / 12</div>
+      <img src="assets/images/img 5 wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">12 / 12</div>
+      <img src="assets/images/img 6 wide.jpg" style="width:100%">
+    </div>
+
+
+
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column">
+      <img class="demo" src="assets/images/img 1 .jpg" onclick="currentSlide(1)" alt="Airmesh">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 2.jpg" onclick="currentSlide(2)" alt="Leather">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 3.jpg" onclick="currentSlide(3)" alt="Neoprene">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 4.jpg" onclick="currentSlide(4)" alt="Canvas">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 5.jpg" onclick="currentSlide(5)" alt="Canvas">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 6.jpg" onclick="currentSlide(6)" alt="Canvas">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 7.jpg" onclick="currentSlide(7)" alt="Canvas">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 8.jpg" onclick="currentSlide(8)" alt="Canvas">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 3.jpg" onclick="currentSlide(9)" alt="Neoprene">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 4.jpg" onclick="currentSlide(10)" alt="Canvas">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 5.jpg" onclick="currentSlide(11)" alt="Canvas">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="assets/images/img 6.jpg" onclick="currentSlide(12)" alt="Canvas">
+    </div>
+
+
+
+
+
+
+  </div>
+</div>
+
+<script>
+  // Open the Modal
+  function openModal() {
+    document.getElementById("myModal").style.display = "block";
+  }
+  
+  // Close the Modal
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+  
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+  </script>
+  
+   <!-- Main content -->
+  <footer>
+    <section class="first-column">
+      <div class="footer-headline">CUSTOMER SERVICE</div>
+      <a href="#" target="_blank">Contact us</a>
+      <a href="#" target="_blank">FAQ</a>
+      <a href="#" target="_blank">Product care</a>
+      <a href="#" target="_blank">Large orders</a>
+      <a href="#" target="_blank">Dagne Heroes discount</a>
+      <a href="#" target="_blank">Dagne Rewards</a>
+      <a href="#" target="_blank">Gift cards</a>
+      
+    </section>
+
+    <section class="second-column">
+      <div class="footer-headline">ABOUT DAGNE DOVER</div>
+      <a href="#" target="_blank">Philosophy & Founders</a>
+      <a href="#" target="_blank">Almost vintage</a>
+      <a href="#" target="_blank">Eco efforts</a>
+      <a href="#" target="_blank">Our materials</a>
+      <a href="#" target="_blank">Stock lists</a>
+      <a href="#" target="_blank">Careers</a>
+      <a href="#" target="_blank">Visit us</a>
+      
+    </section>
+    <section class="third-column">
+      <div class="footer-headline">DOCS</div>
+      <a href="#" target="_blank">Accessibility</a>
+      <a href="#" target="_blank">Privacy</a>
+      <a href="#" target="_blank">Terms</a>
+      <a href="#" target="_blank">Conditions</a>
+      <a href="#" target="_blank">Best sellers</a>
+      
+    </section>
+    <section class="signup-info">
+      
+        <h3>LETS CHAT</h3>
+        <h6>Keep up with the latest news, plus get 10% off your first purchase. Already signed up for emails? Get 10% off when you sign up for texts</h6>
+        <span><label>Email: </label><input type="email" placeholder="enter your email"/></span>
+        <span><label>Phone number: </label><input type="phone number" placeholder="optional"/></span>
+
+      </section>
+  
+    
+  </footer>
+  <footer class="footer-content">
+    <div class="social-icon">
+      <!-- Facebook -->
+      <a href="" target="_blank" class="fa fa-facebook-f fa-lg padding-right" style="color: #ffffff;"></a>
+      <!--Instagram-->
+      <a href="" target="_blank" class="fa fa-instagram fa-lg padding-right" style="color: #ffffff;"></a>
+      <!-- Twitter -->
+      <a href="" target="_blank" class="fa fa-twitter fa-lg padding-right" style="color: #ffffff;"></a>
+      <!-- Pinterest -->
+      <a href="" target="_blank" class="fa fa-pinterest fa-lg padding-right" style="color: #ffffff;"></a>
+      <!-- Linkedin -->
+      <a href="" target="_blank" class="fa fa-linkedin fa-lg padding-right" style="color: #ffffff;"></a>
+      <!-- GitHub -->
+      <a href="" target="_blank" class="fa fa-github-alt fa-lg" style="color: #ffffff;"></a>
+    </div>
+  </footer>
+
+</body>
+</body>
+</html>
